@@ -2,7 +2,6 @@ Codeunit 75550 MyBusinessEvents
 {
     var
         EventCategory: Enum EventCategory;
-        CustomerBlockedTok: Text;
 
     [EventSubscriber(ObjectType::Table, Database::"Customer", 'OnAfterValidateEvent', 'Blocked', false, false)]
     local procedure OnAfterValidateCustomerBlocked(var Rec: Record Customer)
@@ -58,7 +57,6 @@ Codeunit 75550 MyBusinessEvents
     local procedure MyBusinessEventSalesInvoicePosted(SalesInvoiceId: Guid; Url: text[250])
     begin
     end;
-    teve
 
     [ExternalBusinessEvent('SalesCreditMemoPosted', 'Sales credit memo posted', 'This business event is triggered when a sales credit memo is posted.', EventCategory::"My Accounts Receivable Events")]
     local procedure MyBusinessEventSalesCreditMemoPosted(SalesCreditMemoId: Guid; Url: text[250])
